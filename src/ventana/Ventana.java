@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,7 +21,7 @@ public class Ventana extends JFrame{
 		
 		this.setTitle("Ventanota");
 		this.setVisible(true);
-		this.setSize(800,600);
+		this.setSize(800,800);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -87,19 +88,19 @@ public class Ventana extends JFrame{
 		registro.setBackground(Color.cyan);
 		
 		JLabel tituloR = new JLabel("Registro",SwingConstants.CENTER);
-		tituloR.setFont(new Font("Agency FB", Font.BOLD,20));
+		tituloR.setFont(new Font("Agency FB", Font.BOLD,30));
 		tituloR.setBackground(Color.white);
 		tituloR.setLocation(100,10);
 		tituloR.setSize(200,40);
-		tituloR.setOpaque(true);
+		tituloR.setOpaque(false);
 		registro.add(tituloR);
 		
 		JLabel nombreT = new JLabel("Nombre Completo: ");
-		nombreT.setFont(new Font("Agency FB", Font.BOLD,15));
+		nombreT.setFont(new Font("Agency FB", Font.BOLD,20));
 		nombreT.setBackground(Color.white);
 		nombreT.setLocation(10,70);
-		nombreT.setSize(120,30);
-		nombreT.setOpaque(true);
+		nombreT.setSize(150,30);
+		nombreT.setOpaque(false);
 		registro.add(nombreT);
 		
 		JTextField nombre = new JTextField();
@@ -107,11 +108,11 @@ public class Ventana extends JFrame{
 		registro.add(nombre);
 		
 		JLabel edad = new JLabel("¿Cuantos años tienes? ");
-		edad.setFont(new Font("Agency FB", Font.BOLD,15));
+		edad.setFont(new Font("Agency FB", Font.BOLD,20));
 		edad.setBackground(Color.white);
 		edad.setLocation(10,145);
-		edad.setSize(120,30);
-		edad.setOpaque(true);
+		edad.setSize(150,30);
+		edad.setOpaque(false);
 		registro.add(edad);
 		
 		JRadioButton edad1= new JRadioButton ("menos de 12");
@@ -137,11 +138,11 @@ public class Ventana extends JFrame{
 		grupo.add(edad4);
 		
 		JLabel genero = new JLabel("Genero: ");
-		genero.setFont(new Font("Agency FB", Font.BOLD,15));
+		genero.setFont(new Font("Agency FB", Font.BOLD,20));
 		genero.setBackground(Color.white);
 		genero.setLocation(10,280);
-		genero.setSize(50,30);
-		genero.setOpaque(true);
+		genero.setSize(60,30);
+		genero.setOpaque(false);
 		registro.add(genero);
 		
 		JCheckBox masculino= new JCheckBox ("Masculino");
@@ -164,31 +165,51 @@ public class Ventana extends JFrame{
 		grupo1.add(femenino);
 		grupo1.add(otro);
 		
+		JLabel dedica = new JLabel ("¿A que se dedica?");
+		dedica.setFont(new Font("Agency FB", Font.BOLD,20));
+		dedica.setBackground(Color.white);
+		dedica.setLocation(10,345);
+		dedica.setSize(120,30);
+		dedica.setOpaque(false);
+		registro.add(dedica);
+		
+		String ocupaciones[]= {"Estudiante", "Trabajo tiempo completo", "Ingeniero","Profesor","Policia","Cocinero"};
+		
+		JComboBox dedicaB = new JComboBox(ocupaciones);
+		dedicaB.setBounds(10, 380, 90, 30);
+		registro.add(dedicaB);
+		
 		JLabel correoR = new JLabel("Correo electronico: ");
-		correoR.setFont(new Font("Agency FB", Font.BOLD,15));
+		correoR.setFont(new Font("Agency FB", Font.BOLD,20));
 		correoR.setBackground(Color.white);
-		correoR.setLocation(10,360);
+		correoR.setLocation(10,460);
 		correoR.setSize(120,30);
-		correoR.setOpaque(true);
+		correoR.setOpaque(false);
 		registro.add(correoR);
 		
 		JTextField correo_registro = new JTextField();
-		correo_registro.setBounds(10, 400, 180, 30);
+		correo_registro.setBounds(10, 500, 180, 30);
 		registro.add(correo_registro);
 		
 		JLabel contraseñaR = new JLabel("Contraseña: ");
-		contraseñaR.setFont(new Font("Agency FB", Font.BOLD,15));
+		contraseñaR.setFont(new Font("Agency FB", Font.BOLD,20));
 		contraseñaR.setBackground(Color.white);
-		contraseñaR.setLocation(10,440);
+		contraseñaR.setLocation(10,540);
 		contraseñaR.setSize(120,30);
-		contraseñaR.setOpaque(true);
+		contraseñaR.setOpaque(false);
 		registro.add(contraseñaR);
 		
 		JPasswordField contrasena_registro = new JPasswordField();
-		contrasena_registro.setBounds(10, 480, 180, 30);
+		contrasena_registro.setBounds(10, 580, 180, 30);
 		contrasena_registro.setBackground(Color.white);
 		contrasena_registro.setOpaque(true);
 		registro.add(contrasena_registro);
+		
+		JButton registrar = new JButton("Registrar");
+		registrar.setBounds(160, 700, 180, 30);
+		registro.add(registrar);
+
+		
 		
 		this.add(registro);
 		this.repaint();
