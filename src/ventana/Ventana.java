@@ -9,6 +9,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -39,6 +42,25 @@ public class Ventana extends JFrame{
 		login.setLocation(0,0);
 		login.setLayout(null);
 		login.setBackground(Color.magenta);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setLayout(null);
+		setJMenuBar(menuBar);
+		
+		JMenu opciones = new JMenu("Opciones");
+		menuBar.add(opciones);
+		
+		JMenu editar = new JMenu("Editar");
+		menuBar.add(editar);
+		
+		JMenu ayuda = new JMenu("Ayuda");
+		menuBar.add(ayuda);
+		
+		JMenuItem guardar = new JMenuItem("Guardar");
+		opciones.add(guardar);
+		
+		JMenuItem borrar = new JMenuItem("Borrar");
+		opciones.add(borrar);
 		
 		JLabel titulo = new JLabel("Bienvenido!!",SwingConstants.CENTER);
 		titulo.setFont(new Font("Agency FB", Font.BOLD,20));
