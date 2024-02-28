@@ -1,6 +1,8 @@
 package ventana;
+
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -13,10 +15,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
 public class Ventana extends JFrame{
 	
 	public Ventana() {
@@ -31,9 +32,7 @@ public class Ventana extends JFrame{
 		
 		this.setLayout(null);
 		
-		/*this.componentes();*/
-		
-		this.admin();
+		this.componentes();
 	}
 	
 	public void componentes() {
@@ -43,26 +42,26 @@ public class Ventana extends JFrame{
 		login.setLocation(0,0);
 		login.setLayout(null);
 		login.setBackground(Color.magenta);
-
+		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(null);
 		setJMenuBar(menuBar);
-
+		
 		JMenu opciones = new JMenu("Opciones");
 		menuBar.add(opciones);
-
+		
 		JMenu editar = new JMenu("Editar");
 		menuBar.add(editar);
-
+		
 		JMenu ayuda = new JMenu("Ayuda");
 		menuBar.add(ayuda);
-
+		
 		JMenuItem guardar = new JMenuItem("Guardar");
 		opciones.add(guardar);
-
+		
 		JMenuItem borrar = new JMenuItem("Borrar");
 		opciones.add(borrar);
-
+		
 		JLabel titulo = new JLabel("Bienvenido!!",SwingConstants.CENTER);
 		titulo.setFont(new Font("Agency FB", Font.BOLD,20));
 		titulo.setBackground(Color.gray);
@@ -231,6 +230,7 @@ public class Ventana extends JFrame{
 		JButton registrar = new JButton("Registrar");
 		registrar.setBounds(160, 700, 180, 30);
 		registro.add(registrar);
+
 		
 		
 		this.add(registro);
@@ -238,69 +238,5 @@ public class Ventana extends JFrame{
 		
 	}
 	
-	public void admin() {
-		
-		JPanel admin_panel = new JPanel();
-		admin_panel.setSize(this.getWidth(), this.getHeight());
-		admin_panel.setLocation(0,0);
-		admin_panel.setLayout(null);
-		admin_panel.setBackground(Color.yellow);
-		
-		JLabel titulo = new JLabel("Datos",0);
-		titulo.setFont(new Font("Bell MT", Font.BOLD,30));
-		titulo.setBackground(Color.gray);
-		titulo.setLocation(250,10);
-		titulo.setSize(200,40);
-		titulo.setOpaque(false);
-		admin_panel.add(titulo);
-		
-		JButton agregar = new JButton("Agregar");
-		agregar.setBounds(650,270,100,30);
-		admin_panel.add(agregar);
-		
-		JButton eliminar = new JButton("Eliminar");
-		eliminar.setBounds(530,270,100,30);
-		admin_panel.add(eliminar);
-		
-		String titulos[]= {"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"};
-		String datos[][]= {
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
-				};
-		
-		JTable tabla=new JTable(datos,titulos);
-		JScrollPane scrollpane = new JScrollPane(tabla);
-		scrollpane.setBounds(100, 340, 600, 350);
-		admin_panel.add(scrollpane);
-		
-		this.add(admin_panel);
-	}
-
-
-} 
+	
+}
