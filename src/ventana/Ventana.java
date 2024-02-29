@@ -1,9 +1,8 @@
 package ventana;
-
 import java.awt.Color;
 import java.awt.Font;
-
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -15,16 +14,17 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
 public class Ventana extends JFrame{
 	
 	public Ventana() {
 		
-		this.setTitle("Ventanota");
+		this.setTitle("User Login");
 		this.setVisible(true);
-		this.setSize(800,800);
+		this.setSize(800,650);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -32,7 +32,11 @@ public class Ventana extends JFrame{
 		
 		this.setLayout(null);
 		
-		this.componentes();
+		//this.componentes();
+		
+		//this.admin();
+		
+		this.login();
 	}
 	
 	public void componentes() {
@@ -42,26 +46,26 @@ public class Ventana extends JFrame{
 		login.setLocation(0,0);
 		login.setLayout(null);
 		login.setBackground(Color.magenta);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setLayout(null);
 		setJMenuBar(menuBar);
-		
+
 		JMenu opciones = new JMenu("Opciones");
 		menuBar.add(opciones);
-		
+
 		JMenu editar = new JMenu("Editar");
 		menuBar.add(editar);
-		
+
 		JMenu ayuda = new JMenu("Ayuda");
 		menuBar.add(ayuda);
-		
+
 		JMenuItem guardar = new JMenuItem("Guardar");
 		opciones.add(guardar);
-		
+
 		JMenuItem borrar = new JMenuItem("Borrar");
 		opciones.add(borrar);
-		
+
 		JLabel titulo = new JLabel("Bienvenido!!",SwingConstants.CENTER);
 		titulo.setFont(new Font("Agency FB", Font.BOLD,20));
 		titulo.setBackground(Color.gray);
@@ -230,13 +234,171 @@ public class Ventana extends JFrame{
 		JButton registrar = new JButton("Registrar");
 		registrar.setBounds(160, 700, 180, 30);
 		registro.add(registrar);
-
 		
 		
 		this.add(registro);
 		this.repaint();
 		
+		JLabel img = new JLabel();
+		img.setIcon(new ImageIcon(getClass().getResource(".png")));
+		
 	}
 	
-	
-}
+	public void admin() {
+		
+		JPanel admin_panel = new JPanel();
+		admin_panel.setSize(this.getWidth(), this.getHeight());
+		admin_panel.setLocation(0,0);
+		admin_panel.setLayout(null);
+		admin_panel.setBackground(Color.yellow);
+		
+		JLabel titulo = new JLabel("Datos",0);
+		titulo.setFont(new Font("Bell MT", Font.BOLD,30));
+		titulo.setBackground(Color.gray);
+		titulo.setLocation(250,10);
+		titulo.setSize(200,40);
+		titulo.setOpaque(false);
+		admin_panel.add(titulo);
+		
+		JButton agregar = new JButton("Agregar");
+		agregar.setBounds(650,270,100,30);
+		admin_panel.add(agregar);
+		
+		JButton eliminar = new JButton("Eliminar");
+		eliminar.setBounds(530,270,100,30);
+		admin_panel.add(eliminar);
+		
+		String titulos[]= {"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"};
+		String datos[][]= {
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				{"No Control","Nombre","Apellidos","Edad","Sexo","Correo Electronico"},
+				};
+		
+		JTable tabla=new JTable(datos,titulos);
+		JScrollPane scrollpane = new JScrollPane(tabla);
+		scrollpane.setBounds(100, 340, 600, 350);
+		admin_panel.add(scrollpane);
+		
+		this.add(admin_panel);
+	}
+
+	public void login() {
+		
+		JPanel panel = new JPanel();
+		panel.setSize(this.getWidth(), this.getHeight());
+		panel.setLocation(0,0);
+		panel.setLayout(null);
+		panel.setBackground(new Color(53,85,150));
+		
+		JLabel text_account = new JLabel ("My Account",0);
+		text_account.setBounds(300, 100, 200, 60);
+		text_account.setFont(new Font("Arial Black", Font.ITALIC,30));
+		text_account.setForeground(new Color(220,202,138));
+		panel.add(text_account);
+		
+		JLabel text_user = new JLabel ("Enter your username",0);
+		text_user.setBounds(210, 150, 250, 60);
+		text_user.setFont(new Font("Arial Black", Font.ITALIC,15));
+		text_user.setForeground(Color.white);
+		panel.add(text_user);
+		
+		JLabel img_user = new JLabel();
+		img_user.setBounds(210, 210, 32, 32);
+		img_user.setIcon(new ImageIcon(getClass().getResource("user.png")));
+		img_user.setBackground(new Color(220,202,138));
+		img_user.setOpaque(true);
+		panel.add(img_user);
+		
+		JLabel img_password = new JLabel();
+		img_password.setBounds(210, 310, 38, 38);
+		img_password.setIcon(new ImageIcon(getClass().getResource("cerrar.png")));
+		img_password.setBackground(new Color(220,202,138));
+		img_password.setOpaque(true);
+		panel.add(img_password);
+		
+		
+		JTextField username = new JTextField();
+		username.setBounds(250, 200, 300, 50);
+		username.setFont(new Font("Arial", Font.BOLD,20));
+		panel.add(username);
+		
+		JLabel text_password = new JLabel ("Enter your password",0);
+		text_password.setBounds(210, 250, 250, 60);
+		text_password.setFont(new Font("Arial Black", Font.ITALIC,15));
+		text_password.setForeground(Color.white);
+		panel.add(text_password);
+		
+		JPasswordField password = new JPasswordField();
+		password.setBounds(250, 300, 300, 50);
+		username.setFont(new Font("Arial", Font.BOLD,25));
+		password.setBackground(Color.white);
+		password.setOpaque(true);
+		panel.add(password);
+		
+		JLabel btn_login= new JLabel("Login",0);
+		btn_login.setBounds(340, 400,100,50);
+		btn_login.setBackground(new Color(236,213,129));
+		btn_login.setFont(new Font("Arial Black", Font.ITALIC,25));
+		btn_login.setForeground(Color.black);
+		btn_login.setOpaque(true);
+		panel.add(btn_login);
+		
+		JLabel btn_singup= new JLabel("Sing Up",0);
+		btn_singup.setBounds(350, 540,80,40);
+		btn_singup.setBackground(new Color(235,210,120));
+		btn_singup.setFont(new Font("Arial Black", Font.ITALIC,15));
+		btn_singup.setForeground(Color.black);
+		btn_singup.setOpaque(true);
+		panel.add(btn_singup);
+		
+		JLabel text_signup = new JLabel ("Don´t have a account?",0);
+		text_signup.setBounds(320, 500, 150, 60);
+		text_signup.setFont(new Font("Arial Black", Font.ITALIC,12));
+		text_signup.setForeground(Color.white);
+		panel.add(text_signup);
+		
+		JLabel login = new JLabel();
+		login.setBounds(100, 80, 600, 400);
+		login.setLayout(null);
+		login.setBackground(new Color(49,78,146));
+		login.setOpaque(true);
+		panel.add(login);
+		
+		JLabel text_login = new JLabel ("User Login",0);
+		text_login.setBounds(300, 10, 200, 60);
+		text_login.setFont(new Font("Arial Black", Font.ITALIC,30));
+		text_login.setForeground(Color.white);
+		text_login.setLayout(null);
+		panel.add(text_login);
+		
+		
+		this.add(panel);
+		panel.repaint();
+	}
+} 
