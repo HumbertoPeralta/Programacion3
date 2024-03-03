@@ -30,7 +30,7 @@ public class Ventana extends JFrame{
 
 		this.setTitle("Ventanota");
 		this.setVisible(true);
-		this.setSize(800,650);
+		this.setSize(600,650);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -42,8 +42,8 @@ public class Ventana extends JFrame{
 		//this.componentes();
 		//this.admin();
 		//this.login();
-		this.calculadora();
-		
+		//this.calculadora();
+		//this.interes();
 	}
 
 	public void componentes() {
@@ -456,5 +456,55 @@ public class Ventana extends JFrame{
 		}
 		
 		this.add(calculadora);
+		
+	}
+	
+	public void interes() {
+		
+		this.setTitle("Calculando el interes");
+		
+		JPanel fondo = new JPanel();
+		fondo.setSize(this.getWidth(), this.getHeight());
+		fondo.setLocation(0,0);
+		fondo.setLayout(new BorderLayout());
+		
+		JLabel txt_interes= new JLabel(" Interés");
+		txt_interes.setFont(new Font("Arial", Font.BOLD,30));
+		txt_interes.setForeground(Color.red);
+		txt_interes.setBackground(Color.white);
+		fondo.add(txt_interes,BorderLayout.NORTH);
+		
+		JPanel calcular = new JPanel();
+		calcular.setLayout(new BorderLayout());
+		calcular.setBackground(new Color(153,255,153));
+		calcular.setBounds(40, 50, 500, 300);
+		
+		JLabel txt_calcular= new JLabel("Calcular Interés");
+		txt_calcular.setFont(new Font("Arial", Font.BOLD,15));
+		txt_calcular.setForeground(Color.black);
+		calcular.add(txt_calcular,BorderLayout.NORTH);
+		
+		JLabel txt_Capital= new JLabel("Capital");
+		txt_Capital.setFont(new Font("Arial", Font.BOLD,15));
+		txt_Capital.setBounds(40, 50,40 ,40 );
+		calcular.add(txt_Capital);
+		/*JLabel txt_tiempo = new JLabel("Tiempo: "); 
+		txt_tiempo.setFont(new Font("Arial", Font.BOLD,15));
+		calcular.add(txt_tiempo);
+		
+		JLabel txt_tasa = new JLabel("Tasa Interés: "); 
+		txt_tasa.setFont(new Font("Arial", Font.BOLD,15));
+		calcular.add(txt_tasa);
+		*/
+		JPanel resultados = new JPanel();
+		resultados.setLayout(new BorderLayout());
+		resultados.setBackground(new Color(255,153,153));
+		resultados.setBounds(40, 380, 500, 200);
+		fondo.add(resultados,BorderLayout.CENTER);
+		
+		this.add(resultados);
+		this.add(calcular);
+		this.add(fondo);
+		
 	}
 } 
