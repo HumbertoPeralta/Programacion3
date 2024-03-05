@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -43,7 +46,7 @@ public class Ventana extends JFrame{
 		//this.admin();
 		//this.login();
 		//this.calculadora();
-		//this.interes();
+		this.interes();
 	}
 
 	public void componentes() {
@@ -475,32 +478,88 @@ public class Ventana extends JFrame{
 		fondo.add(txt_interes,BorderLayout.NORTH);
 		
 		JPanel calcular = new JPanel();
-		calcular.setLayout(new BorderLayout());
 		calcular.setBackground(new Color(153,255,153));
+		calcular.setLayout(null);
 		calcular.setBounds(40, 50, 500, 300);
 		
 		JLabel txt_calcular= new JLabel("Calcular Interés");
 		txt_calcular.setFont(new Font("Arial", Font.BOLD,15));
+		txt_calcular.setBounds(10, 10, 200, 20);
 		txt_calcular.setForeground(Color.black);
-		calcular.add(txt_calcular,BorderLayout.NORTH);
+		calcular.add(txt_calcular);
 		
-		JLabel txt_Capital= new JLabel("Capital");
-		txt_Capital.setFont(new Font("Arial", Font.BOLD,15));
-		txt_Capital.setBounds(40, 50,40 ,40 );
-		calcular.add(txt_Capital);
-		/*JLabel txt_tiempo = new JLabel("Tiempo: "); 
-		txt_tiempo.setFont(new Font("Arial", Font.BOLD,15));
+		JLabel txt_capital= new JLabel("Capital:");
+		txt_capital.setFont(new Font("Arial", Font.BOLD,12));
+		txt_capital.setBounds(60, 50,80 ,40 );
+		calcular.add(txt_capital);
+		
+		JLabel txt_tiempo = new JLabel("Tiempo: "); 
+		txt_tiempo.setFont(new Font("Arial", Font.BOLD,12));
+		txt_tiempo.setBounds(60, 120,80 ,40 );
 		calcular.add(txt_tiempo);
 		
 		JLabel txt_tasa = new JLabel("Tasa Interés: "); 
-		txt_tasa.setFont(new Font("Arial", Font.BOLD,15));
+		txt_tasa.setFont(new Font("Arial", Font.BOLD,12));
+		txt_tasa.setBounds(60, 190,100 ,40 );
 		calcular.add(txt_tasa);
-		*/
+		
+		JLabel capital_resultado = new JLabel("1500");
+		capital_resultado.setOpaque(true);
+		capital_resultado.setBounds(250, 60, 120, 20);
+		capital_resultado.setBackground(Color.white);
+		calcular.add(capital_resultado);
+		
+		JLabel tiempo_resultado = new JLabel("2");
+		tiempo_resultado.setOpaque(true);
+		tiempo_resultado.setBounds(250, 130, 120, 20);
+		tiempo_resultado.setBackground(Color.white);
+		calcular.add(tiempo_resultado);
+		
+		JLabel tasa_resultado = new JLabel("0.1");
+		tasa_resultado.setOpaque(true);
+		tasa_resultado.setBounds(250, 200, 120, 20);
+		tasa_resultado.setBackground(Color.white);
+		calcular.add(tasa_resultado);
+		
+		JButton btnCalcular = new JButton("Calcular");
+		btnCalcular.setIcon(new ImageIcon(getClass().getResource("disco-flexible.png")));
+		btnCalcular.setForeground(Color.WHITE);
+		btnCalcular.setBackground(SystemColor.desktop);
+		btnCalcular.setBounds(60, 250, 105, 23);
+		calcular.add(btnCalcular);
+		
+		JButton btnNewButton = new JButton("Cancelar");
+		btnNewButton.setIcon(new ImageIcon(getClass().getResource("boton-x.png")));
+		btnNewButton.setBounds(250, 250, 105, 23);
+		btnNewButton.setBackground(SystemColor.desktop);
+		btnNewButton.setForeground(Color.WHITE);
+		calcular.add(btnNewButton);
+		
 		JPanel resultados = new JPanel();
-		resultados.setLayout(new BorderLayout());
+		resultados.setLayout(null);
 		resultados.setBackground(new Color(255,153,153));
 		resultados.setBounds(40, 380, 500, 200);
-		fondo.add(resultados,BorderLayout.CENTER);
+		fondo.add(resultados);
+		
+		JLabel resultado_interes = new JLabel("Interes: ");
+		resultado_interes.setBounds(60,20, 60, 60);
+		resultados.add(resultado_interes);
+		
+		JLabel resultado_monto = new JLabel("Monto: ");
+		resultado_monto.setBounds(60, 95, 50, 50);
+		resultados.add(resultado_monto);
+		
+		JLabel interes_resultado = new JLabel("315.00000000002");
+		interes_resultado.setOpaque(true);
+		interes_resultado.setBounds(200, 40, 120, 20);
+		interes_resultado.setBackground(Color.white);
+		resultados.add(interes_resultado);
+		
+		JLabel monto_resultado = new JLabel("1815.00000000002");
+		monto_resultado.setOpaque(true);
+		monto_resultado.setBounds(200, 110, 120, 20);
+		monto_resultado.setBackground(Color.white);
+		resultados.add(monto_resultado);
 		
 		this.add(resultados);
 		this.add(calcular);
