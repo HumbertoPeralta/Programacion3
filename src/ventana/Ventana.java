@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Random;
 
 import javax.swing.BorderFactory;
@@ -583,7 +585,57 @@ public class Ventana extends JFrame{
 		panel.setLocation(0,0);
 		panel.setLayout(null);
 		panel.setBackground(Color.white);
-		
+		panel.addMouseListener(new MouseListener() {
+        	@Override
+        	public void mouseClicked(MouseEvent me) {
+        		int numero1=random.nextInt(400);
+				int numero2=random.nextInt(300);
+				int numero3=random.nextInt(200);
+				int numero4=random.nextInt(200);
+				
+				int rojo=random.nextInt(256);
+				int verde=random.nextInt(256);
+				int azul=random.nextInt(256);
+				
+				String colorHex = String.format("#%02x%02x%02x", rojo, verde, azul);
+        		JButton boton1 = new JButton(colorHex);
+				boton1.setSize(numero3,numero4);
+				boton1.setLayout(null);
+	            boton1.setBackground(Color.decode(colorHex));
+	            boton1.setLocation(me.getX(),me.getY());
+	            panel.add(boton1);
+	            
+	            boton1.addActionListener(new ActionListener(){
+	            	public void actionPerformed(ActionEvent e) {
+	            		JOptionPane.showMessageDialog(panel,boton1.getText());
+	            	}
+	            });
+        	}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+        });
 		JButton boton = new JButton("presioname!");
 		boton.setBounds(150, 500, 300, 50);
 		boton.setLayout(null);
@@ -602,10 +654,12 @@ public class Ventana extends JFrame{
 				
 				String colorHex = String.format("#%02x%02x%02x", rojo, verde, azul);
 	            
+				
 				JButton boton1 = new JButton(colorHex);
 				boton1.setBounds(numero1,numero2,numero3,numero4);
 				boton1.setLayout(null);
 	            boton1.setBackground(Color.decode(colorHex));
+	            
 	            boton1.addActionListener(new ActionListener(){
 	            	public void actionPerformed(ActionEvent e) {
 	            		JOptionPane.showMessageDialog(panel,boton1.getText());
