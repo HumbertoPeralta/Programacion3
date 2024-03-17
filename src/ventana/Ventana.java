@@ -22,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -595,13 +596,26 @@ public class Ventana extends JFrame{
 				int numero3=random.nextInt(200);
 				int numero4=random.nextInt(200);
 				
-				JButton boton1 = new JButton("Presioname!");
-				boton1.setBounds(numero1, numero2, numero3, numero4);
-				boton1.setBackground(new Color(numero1,numero2,numero3));
+				int rojo=random.nextInt(256);
+				int verde=random.nextInt(256);
+				int azul=random.nextInt(256);
+				
+				String colorHex = String.format("#%02x%02x%02x", rojo, verde, azul);
+	            
+				JButton boton1 = new JButton(colorHex);
+				boton1.setBounds(numero1,numero2,numero3,numero4);
 				boton1.setLayout(null);
-				panel.add(boton1);
-
+	            boton1.setBackground(Color.decode(colorHex));
+	            boton1.addActionListener(new ActionListener(){
+	            	public void actionPerformed(ActionEvent e) {
+	            		JOptionPane.showMessageDialog(panel,boton1.getText());
+	            	}
+	            });
+                
+	            panel.add(boton1);
+	            panel.repaint();
 			}
+			
 		});
 		panel.add(boton);
 		
