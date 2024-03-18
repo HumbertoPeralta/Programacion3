@@ -584,7 +584,6 @@ public class Ventana extends JFrame{
 		panel.setSize(this.getWidth()/2, this.getHeight());
 		panel.setLocation(0,0);
 		panel.setLayout(null);
-		panel.setBackground(Color.white);
 		panel.addMouseListener(new MouseListener() {
         	@Override
         	public void mouseClicked(MouseEvent me) {
@@ -634,8 +633,11 @@ public class Ventana extends JFrame{
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+				int rojo=random.nextInt(256);
+				int verde=random.nextInt(256);
+				int azul=random.nextInt(256);
+				panel.setBackground(new Color(rojo,verde,azul));
+
 			}
         });
 		JButton boton = new JButton("presioname!");
