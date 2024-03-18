@@ -588,8 +588,7 @@ public class Ventana extends JFrame{
 		panel.addMouseListener(new MouseListener() {
         	@Override
         	public void mouseClicked(MouseEvent me) {
-        		int numero1=random.nextInt(400);
-				int numero2=random.nextInt(300);
+        		
 				int numero3=random.nextInt(200);
 				int numero4=random.nextInt(200);
 				
@@ -604,12 +603,15 @@ public class Ventana extends JFrame{
 	            boton1.setBackground(Color.decode(colorHex));
 	            boton1.setLocation(me.getX(),me.getY());
 	            panel.add(boton1);
-	            
 	            boton1.addActionListener(new ActionListener(){
 	            	public void actionPerformed(ActionEvent e) {
-	            		JOptionPane.showMessageDialog(panel,boton1.getText());
-	            	}
+	            		JButton clickedButton = (JButton) e.getSource();
+                        panel.remove(clickedButton);
+                        panel.revalidate();	  
+        	            panel.repaint();
+	            		            	}
 	            });
+	            
         	}
 
 			@Override
@@ -662,8 +664,12 @@ public class Ventana extends JFrame{
 	            
 	            boton1.addActionListener(new ActionListener(){
 	            	public void actionPerformed(ActionEvent e) {
-	            		JOptionPane.showMessageDialog(panel,boton1.getText());
-	            	}
+	            		JButton clickedButton = (JButton) e.getSource();
+                        panel.remove(clickedButton);
+                        panel.revalidate();	  
+        	            panel.repaint();
+
+	            		}
 	            });
                 
 	            panel.add(boton1);
