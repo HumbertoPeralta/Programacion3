@@ -47,6 +47,11 @@ public class Sistema extends JFrame {
 	 */
 	public Sistema() {
 		
+		
+		this.login(sistema);
+	}
+	
+	public void login(JFrame frame) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 390);
 		contentPane = new JPanel();
@@ -62,7 +67,15 @@ public class Sistema extends JFrame {
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Crear usuario");
-		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(panel);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				registro(frame);
+			}
+		});
 		btnNewButton.setBounds(148, 284, 114, 32);
 		panel.add(btnNewButton);
 		
@@ -92,7 +105,9 @@ public class Sistema extends JFrame {
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 26));
 		lblNewLabel_1.setBounds(121, 11, 141, 32);
 		panel.add(lblNewLabel_1);
-		
+	}
+	
+	public void registro(JFrame frame) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 547);
 		contentPane = new JPanel();
@@ -101,17 +116,26 @@ public class Sistema extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel1 = new JPanel();
+		JPanel panel = new JPanel();
 		panel.setBackground(new Color(128, 128, 255));
 		panel.setBounds(0, 0, 434, 508);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton1 = new JButton("Crear usuario");
+		JButton btnNewButton = new JButton("Crear usuario");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(panel);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				login(frame);
+			}
+		});
 		btnNewButton.setBounds(157, 455, 112, 32);
 		panel.add(btnNewButton);
 		
-		JLabel lblNewLabel1 = new JLabel("Nombre");
+		JLabel lblNewLabel = new JLabel("Nombre");
 		lblNewLabel.setFont(new Font("Cambria", Font.PLAIN, 18));
 		lblNewLabel.setBounds(38, 54, 129, 14);
 		panel.add(lblNewLabel);
@@ -121,20 +145,20 @@ public class Sistema extends JFrame {
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblUsuarioR = new JLabel("Apellido paterno:");
-		lblUsuarioR.setFont(new Font("Cambria", Font.PLAIN, 18));
-		lblUsuarioR.setBounds(38, 110, 158, 23);
-		panel.add(lblUsuarioR);
+		JLabel lblUsuario = new JLabel("Apellido paterno:");
+		lblUsuario.setFont(new Font("Cambria", Font.PLAIN, 18));
+		lblUsuario.setBounds(38, 110, 158, 23);
+		panel.add(lblUsuario);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(38, 140, 186, 20);
 		panel.add(passwordField);
 		
-		JLabel lblNewLabel_2 = new JLabel("Registro");
-		lblNewLabel_2.setForeground(Color.BLACK);
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 26));
-		lblNewLabel_2.setBounds(167, 11, 102, 32);
-		panel.add(lblNewLabel_2);
+		JLabel lblNewLabel_1 = new JLabel("Registro");
+		lblNewLabel_1.setForeground(Color.BLACK);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 26));
+		lblNewLabel_1.setBounds(167, 11, 102, 32);
+		panel.add(lblNewLabel_1);
 		
 		JLabel lblApellidoMaterno = new JLabel("Apellido materno:");
 		lblApellidoMaterno.setFont(new Font("Cambria", Font.PLAIN, 18));
@@ -181,7 +205,5 @@ public class Sistema extends JFrame {
 		chckbxNewCheckBox.setBounds(38, 405, 245, 23);
 		chckbxNewCheckBox.setOpaque(false);
 		panel.add(chckbxNewCheckBox);
-		
 	}
-	
 }
