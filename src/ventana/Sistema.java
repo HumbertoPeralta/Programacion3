@@ -10,10 +10,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class Sistema extends JFrame {
 
@@ -47,6 +51,133 @@ public class Sistema extends JFrame {
 	 */
 	public Sistema() {
 		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setLayout(null);
+		
+		JMenu cuenta = new JMenu("Cuenta");
+		menuBar.add(cuenta);
+		
+		JMenu usuarios = new JMenu("Usuarios");
+		menuBar.add(usuarios);
+		
+		JMenu ayuda = new JMenu("Ayuda");
+		menuBar.add(ayuda);
+		
+		JMenuItem login = new JMenuItem("Login");
+		login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				login(sistema);
+			}
+		});
+		
+		cuenta.add(login);
+		
+
+		JMenuItem registro = new JMenuItem("Registro");
+		registro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				registro(sistema);
+			}
+		});
+		cuenta.add(registro);
+		
+		JMenuItem recuperacion = new JMenuItem("Recuperación de cuenta");
+		recuperacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				recuperacion(sistema);
+			}
+		});
+		
+		cuenta.add(recuperacion);
+		
+		JMenuItem alta = new JMenuItem("Alta");
+		alta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				alta(sistema);
+			}
+		});
+		
+		usuarios.add(alta);
+		
+		JMenuItem baja = new JMenuItem("Baja");
+		baja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				baja(sistema);
+			}
+		});
+		
+		usuarios.add(baja);
+		
+		JMenuItem consultar = new JMenuItem("Consultar");
+		consultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				consultar(sistema);
+			}
+		});
+		usuarios.add(consultar);
+		
+		JMenuItem crearUsuario = new JMenuItem("¿Cómo crear un usuario?");
+		crearUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				crearUsuario(sistema);
+			}
+		});
+		
+		ayuda.add(crearUsuario);
+		
+		JMenuItem accederSistema = new JMenuItem("¿Cómo acceder al sistema?");
+		accederSistema.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				accederSistema(sistema);
+			}
+		});
+		ayuda.add(accederSistema);
+		
+		JMenuItem olvideContraseña = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		olvideContraseña.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(contentPane);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				olvideContraseña(sistema);
+			}
+		});
+		ayuda.add(olvideContraseña);
+		
+		setJMenuBar(menuBar);
 		
 		this.login(sistema);
 	}
@@ -54,6 +185,7 @@ public class Sistema extends JFrame {
 	public void login(JFrame frame) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 390);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -206,4 +338,159 @@ public class Sistema extends JFrame {
 		chckbxNewCheckBox.setOpaque(false);
 		panel.add(chckbxNewCheckBox);
 	}
+	
+	public void recuperacion(JFrame frame) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 547);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(202, 121, 204));
+		panel.setBounds(0, 0, 434, 508);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("Recuperación de cuenta");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(85, 22, 275, 35);
+		panel.add(lblNewLabel_2);
+	}
+	
+	public void alta(JFrame frame) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 547);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(119, 213, 108));
+		panel.setBounds(0, 0, 434, 508);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("Alta",0);
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(85, 22, 275, 35);
+		panel.add(lblNewLabel_2);
+	}
+	
+	public void baja(JFrame frame) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 547);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(217, 215, 117));
+		panel.setBounds(0, 0, 434, 508);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("Baja",0);
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(85, 22, 275, 35);
+		panel.add(lblNewLabel_2);
+	}
+	
+	public void consultar(JFrame frame) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 547);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(238, 96, 124));
+		panel.setBounds(0, 0, 434, 508);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("Consultar",0);
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(85, 22, 275, 35);
+		panel.add(lblNewLabel_2);
+	}
+	
+	public void crearUsuario(JFrame frame) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 547);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(164, 166, 170));
+		panel.setBounds(0, 0, 434, 508);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("¿Cómo crear un usuario?");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(85, 22, 326, 35);
+		panel.add(lblNewLabel_2);
+	}
+	
+	public void accederSistema(JFrame frame) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 547);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(250, 163, 84));
+		panel.setBounds(0, 0, 434, 508);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("¿Cómo acceder al sistema?");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(61, 24, 336, 35);
+		panel.add(lblNewLabel_2);
+	}
+	
+	public void olvideContraseña(JFrame frame) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 547);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(105, 228, 225));
+		panel.setBounds(0, 0, 434, 508);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("¿Qué pasa si olvidé mi contraseña?");
+		lblNewLabel_2.setForeground(new Color(255, 255, 255));
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(38, 25, 386, 35);
+		panel.add(lblNewLabel_2);
+	}
+	
 }
