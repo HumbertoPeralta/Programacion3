@@ -62,19 +62,34 @@ public class Player {
 	}
 	
 	public boolean seTocan(Player t) {
-		if( x + w >= t.getX() && x <= t.getX() + t.getW()&& y + h >= t.getY()) {
+		if(x + w >= t.getX() && x <= t.getX() + t.getW() && y + h >= t.getY() && y <= t.getY() + t.getH()) {
 			
 			if(x+w> t.getX()&& x < t.getX()) {
 				x = t.getX() - w;
 			}else if(x<t.getX() + t.getW()&& x > t.getX()) {
 				x = t.getX() + t.getW();
 			}
-			
+			if (y + h > t.getY() && y < t.getY()) {
+	            y = t.getY() - h; 
+	        }else if (y < t.getY() + t.getH() && y > t.getY()) {
+	            y = t.getY() + t.getH(); 
+	        }
 			
 			return true;
 		}
 		
+		return false;
 		
+	}
+	
+	public boolean extremos(Player i,Player d) {
+		if(x + w >= i.getX() && x <= i.getX() + i.getW() && y + h >= i.getY() && y <= i.getY() + i.getH()) {
+			x=d.getX()-30;
+			return true;
+		}else if(x + w >= d.getX() && x <= d.getX() + d.getW() && y + h >= d.getY() && y <= d.getY() + d.getH()) {
+			x=i.getX()+30;
+			return true;
+		}
 		
 		return false;
 	}
